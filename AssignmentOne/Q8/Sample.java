@@ -36,7 +36,7 @@ class Fixed implements Stack {
 
     @Override
     public void push(int x) {
-        if (this.top + 1 == size) {
+        if (this.top + 1 == this.size) {
             System.out.println("Stack overflow");
             return;
         }
@@ -64,7 +64,7 @@ class Dynamic implements Stack {
 
     @Override
     public void push(int x) {
-        if (this.top + 1 == size) {
+        if (this.top + 1 == this.size) {
             this.size++;
             this.arr = Arrays.copyOf(this.arr, this.size);
         }

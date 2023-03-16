@@ -40,7 +40,7 @@ class Circle implements CalcArea {
 
     @Override
     public void calculateArea() {
-        System.out.println("The area of circle is " + 3.14 * radius * radius);
+        System.out.println("The area of circle is " + 3.14 * this.radius * this.radius);
     }
 
 }
@@ -54,7 +54,7 @@ class Square implements CalcArea {
 
     @Override
     public void calculateArea() {
-        System.out.println("The area of square is " + radius * radius);
+        System.out.println("The area of square is " + this.radius * this.radius);
     }
 
 }
@@ -70,8 +70,8 @@ class Triangle implements CalcArea {
 
     @Override
     public void calculateArea() {
-        double side = (s1 + s2 + s3) / 2;
-        double area = Math.sqrt(side * (side - s1) * (side - s2) * (side - s3));
+        double side = (this.s1 + this.s2 + this.s3) / 2;
+        double area = Math.sqrt(side * (side - this.s1) * (side - this.s2) * (side - this.s3));
         System.out.println("The area of Triangle is " + area);
     }
 }
@@ -85,12 +85,12 @@ class Sphere implements CalcArea, CalcVolume {
 
     @Override
     public void calculateArea() {
-        System.out.println("The area of sphere is " + 3.14 * radius * radius);
+        System.out.println("The area of sphere is " + 3.14 * this.radius * this.radius);
     }
 
     @Override
     public void calculateVolume() {
-        System.out.println("The volume of sphere is " + 1.33 * 3.14 * radius * radius * radius);
+        System.out.println("The volume of sphere is " + 1.33 * 3.14 * this.radius * this.radius * this.radius);
     }
 
 }
