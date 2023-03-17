@@ -1,29 +1,34 @@
 package AssignmentOne.Q4;
 
-class Singleton {
-    // Static -> it is only to this class.
-    // Creating a static variable that is null.
-    static Singleton obj = null;
+class Database {
+    private static Database dbObject;
 
-    // If the object is not created, create it and return it. If it is already
-    // created, return it
+    private Database() {
+    }
 
-    public static Singleton createInstance() {
-        if (obj == null) {
-            obj = new Singleton();
+    public static Database getInstance() {
+
+        // create object if it's not already created
+        if (dbObject == null) {
+            dbObject = new Database();
         }
-        return obj;
 
+        // returns the singleton object
+        return dbObject;
+    }
+
+    public void getConnection() {
+        System.out.println("You are now connected to the database.");
     }
 }
 
-// The Singleton class is a class that can only have one object (an instance
-// ofthe class) at a time
-public class Sample {
+class Sample {
     public static void main(String[] args) {
-        // Creating an instance of the Singleton class.
-        Singleton s1 = Singleton.createInstance();
-        Singleton s2 = Singleton.createInstance();
-        System.out.println(s1 == s2);
+        Database db1;
+
+        // refers to the only object of Database
+        db1 = Database.getInstance();
+
+        db1.getConnection();
     }
 }

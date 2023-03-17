@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Sample {
 	// Function to check whether the given number is prime or not
 	public static boolean isPrime(int num) {
-		if (num <= 2)
+		if (num < 1)
 			return false;
-		int limit = num / 2 + 1;
-		for (int i = 2; i < limit; i++) {
+		for (int i = 2; i < Math.sqrt(num); i++) {
 			if (num % i == 0)
 				return false;
 		}
@@ -26,7 +25,7 @@ public class Sample {
 	}
 
 	// Function to check whether a number is armstrong number
-	public static boolean isArmstrongNumber(int number) {//153
+	public static boolean isArmstrongNumber(int number) {// 153
 		int length = 0, temp = number, sum = 0;
 		while (temp > 0) {
 			length++;
@@ -44,7 +43,7 @@ public class Sample {
 	}
 
 	// Function to check whether a number is perfect number
-	public static boolean isPerfectNumber(int number) {//496  --1+2+4+8+16+31+62+124+248=496
+	public static boolean isPerfectNumber(int number) {// 496 --1+2+4+8+16+31+62+124+248=496
 		int sum = 0;
 		for (int i = 1; i <= number / 2; i++) {
 			if (number % i == 0) {
@@ -60,9 +59,9 @@ public class Sample {
 	// Function to check whether a number is a palindrome
 	public static boolean isPalindrome(int number) {
 		int reverse = 0, temp = number;
-		while (temp > 0) {//92
-			reverse = reverse * 10 + temp % 10;//0+2=2
-			temp /= 10;//9
+		while (temp > 0) {// 92
+			reverse = reverse * 10 + temp % 10;// 0+2=2
+			temp /= 10;// 9
 		}
 		if (reverse == number)
 			return true;
