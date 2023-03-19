@@ -1,17 +1,33 @@
 package AssignmentThree.Q5;
 
-public class Sample implements Runnable {
+/**
+ * @author Hariharan
+ * @version 1.0
+ */
+public class Sample {
+    /**
+     * 
+     * @param args
+     * @return null
+     */
+    public static void main(String[] args) {
+        // Create object for MyClass
+        ThreadDemo classObject = new ThreadDemo();
 
+        // Start the thread
+        classObject.start();
+
+        // Start the thread
+        // classObject.start();
+    }
+}
+
+// Class MyClass that extends Thread Class
+class ThreadDemo extends Thread {
+
+    // Overriding the method run from Thread class
     @Override
     public void run() {
-        System.out.println("in run() method, method completed.");
+        System.out.println("Thread started.");
     }
-
-    public static void main(String[] args) {
-        Sample obj = new Sample();
-        Thread thread1 = new Thread();
-        thread1.start();
-        thread1.start(); // will throw java.lang.IllegalThreadStateException at runtime
-    }
-
 }

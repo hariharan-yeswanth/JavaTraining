@@ -1,34 +1,55 @@
 package AssignmentThree.Q1;
 
+/** @author Hariharan
+ *  @version 1.0
+ */
+
+/** Import required packages
+ */
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Sample {
+    /**
+     * 
+     * @param args
+     * @return null
+     */
+
     public static void main(String[] args) {
-        Runnable r = new Runnable1();
-        Thread t = new Thread(r);
-        t.start();
-        Runnable r2 = new Runnable2();
-        Thread t2 = new Thread(r2);
-        t2.start();
-    }
-}
+        // Create Thread Pool
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-class Runnable2 implements Runnable {
-    public void run() {
-        System.out.println("The Odd numbers from 1 to 100 are: ");
-        for (int index = 1; index <= 100; index++) {
-            if (index % 2 != 0) {
-                System.out.print(index+" ");
-            }
-        }
-    }
-}
+        // Create object for Sample class
+        Sample object = new Sample();
 
-class Runnable1 implements Runnable {
-    public void run() {
-        System.out.println("The Even numbers from 1 to 100 are: ");
-        for (int index = 1; index <= 100; index++) {
-            if (index % 2 == 0) {
-                System.out.print(index+" ");
-            }
+        // Execute the thread to print Odd Numbers
+        executorService.execute(() -> {
+            Thread.currentThread().setName("Odd Numbers: ");
+            object.printNumbers(1);
+
+        });
+
+        // Execute the thread to print Even Numbers
+        executorService.execute(() -> {
+            Thread.currentThread().setName("Even Numbers: ");
+            object.printNumbers(2);
+        });
+
+        // Shutdown ExecutorService
+        executorService.shutdown();
+
+    }
+
+    synchronized public void printNumbers(int number) {
+
+        // Print name of currentThread
+        System.out.println(Thread.currentThread().getName());
+
+        // Print values
+        for (; number <= 100; number += 2) {
+            System.out.print(number + " ");
         }
+        System.out.println();
     }
 }

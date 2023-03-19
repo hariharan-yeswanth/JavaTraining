@@ -1,5 +1,10 @@
 package AssignmentThree.Q3;
+/** @author Hariharan
+ *  @version 1.0
+ */
 
+/** Import required packages
+ */
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -10,22 +15,23 @@ public class Sample {
      * @return null
      */
     public static void main(String[] args) {
-        // Create object for Inventory class
-        Inventory inventoryObject = new Inventory();
         // Create Thread Pool
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-        // Execute the thread to produce item
+        // Create object for Inventory class
+        Inventory inventoryObject = new Inventory();
+
+        // Execute the thread to produce thread
         executorService.execute(() -> {
-            for (int iterationVariable = 1; iterationVariable <= 2; iterationVariable++) {
-                inventoryObject.produce(iterationVariable);
+            for (int index = 1; index <= 2; index++) {
+                inventoryObject.produce(index);
             }
         });
 
-        // Execute the thread to consume item
+        // Execute the thread to consume thread
         executorService.execute(() -> {
-            for (int iterationVariable = 1; iterationVariable <= 2; iterationVariable++) {
-                inventoryObject.consume(iterationVariable);
+            for (int index = 1; index <= 2; index++) {
+                inventoryObject.consume(index);
             }
         });
 
@@ -35,34 +41,33 @@ public class Sample {
 }
 
 class Inventory {
-    // Flag variable to indicate Item status
-    boolean flag = false;
+    int count = 0;
 
     // method to produce item
     synchronized public void produce(int itemId) {
-        if (flag) {
+        if (count == 1) {
             try {
                 wait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        flag = !flag;
-        System.out.println("Item" + itemId + " Produced");
+        System.out.println("Item Produced");
+        count = 1;
         notify();
     }
 
     // Method to consume item
     synchronized public void consume(int itemId) {
-        if (!flag) {
+        if (count == 0) {
             try {
                 wait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        flag = !flag;
-        System.out.println("Item" + itemId + " consumed");
+        count = 0;
+        System.out.println("Item Consumed");
         notify();
     }
 }
