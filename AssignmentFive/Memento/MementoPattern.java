@@ -31,3 +31,6 @@ public class MementoPattern {
 // Created classes Memento, Originator and CareTaker.
 // MementoPattern, our demo class, will use CareTaker and Originator objects
 // to show restoration of object states.
+
+// Memento pattern is used to restore state of an object to a previous state.
+// Memento pattern falls under behavioral pattern category.
