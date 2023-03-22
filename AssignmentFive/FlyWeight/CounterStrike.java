@@ -15,7 +15,7 @@ public class CounterStrike {
          * Assume that we have a total of 10 players
          * in the game.
          */
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <2; i++) {
             /*
              * getPlayer() is called simply using the class
              * name since the method is a static one

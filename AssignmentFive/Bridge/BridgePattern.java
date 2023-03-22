@@ -16,4 +16,3 @@ public class BridgePattern {
 // Shape is an abstract class and will use object of DrawAPI.
 // BridgePattern, our demo class will use Shape class to draw different colored
 // circle.
-
