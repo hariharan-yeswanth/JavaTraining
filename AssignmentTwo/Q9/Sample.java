@@ -32,6 +32,7 @@ public class Sample {
             } catch (NumberFormatException nfe) {
                 System.out.print("Press enter and Please enter the valid mark");
                 scan.nextLine();
+                index--;
             } catch (OutOfRangeException oore) {
                 oore.printStackTrace();
             } catch (NegativeNumberException nne) {
@@ -39,7 +40,7 @@ public class Sample {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            index--;
+            // index--;
         }
         Float TotalMarks = 0f;
         for (int index = 0; index < 5; index++) {
