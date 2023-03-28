@@ -1,4 +1,4 @@
-package jdbc.AssignmentSeven.PipedInputStream;
+package AssignmentSeven.PipedInputStream;
 
 import java.io.PipedOutputStream;
 import java.io.PipedInputStream;

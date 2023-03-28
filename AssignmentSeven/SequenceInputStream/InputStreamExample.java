@@ -1,4 +1,4 @@
-package jdbc.AssignmentSeven.SequenceInputStream;
+package AssignmentSeven.SequenceInputStream;
 
 import java.io.FileInputStream;
 import java.io.SequenceInputStream;
