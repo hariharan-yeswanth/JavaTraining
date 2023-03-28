@@ -6,9 +6,9 @@ import java.io.FileOutputStream;
 public class Main {
     public static void main(String[] args) throws Exception {
         FileInputStream fileInputStream = new FileInputStream(
-                "/Users/hariharansaravanan/Documents/JAVA/Learning/JDBC/jdbc/AssignmentSeven/IO/Input.txt");
+                "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/IO/Input.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(
-                "/Users/hariharansaravanan/Documents/JAVA/Learning/JDBC/jdbc/AssignmentSeven/IO/Output.txt");
+                "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/IO/Output.txt");
         int numberOfCharactersRead = 0;
         byte buffer[] = new byte[8];
         while ((numberOfCharactersRead = fileInputStream.read(buffer)) != -1) {
