@@ -18,8 +18,11 @@ public class CreateTable {
         // Creating a connection to the database.
         Connection connection = JDBCConnector.makeConnection();
         try {
+
             Statement statement = connection.createStatement();
-            int query1Flag = statement.executeUpdate("create table pradeep(empno int, name varchar(20), deptno int)");
+            statement.executeUpdate("drop table pradeep");
+            int query1Flag = statement
+                    .executeUpdate("create table pradeep(empno int, name varchar(20), deptno int)");
             System.out.println(query1Flag);
         } catch (Exception e) {
             e.printStackTrace();

@@ -20,6 +20,7 @@ public class Transaction_pairs {
     public static void main(String[] args) {
         // Making a connection to the database.
         Connection connection = JDBCConnector.makeConnection();
+
         String updateString = "update COFFEES " + "set SALES = ? where COF_NAME like ?";
         String updateStatement = "update COFFEES " + "set TOTAL = TOTAL + ? where COF_NAME like ?";
         String query = "select COF_NAME, SALES, TOTAL from COFFEES";
@@ -28,6 +29,8 @@ public class Transaction_pairs {
             PreparedStatement updateTotal = connection.prepareStatement(updateStatement);
 
             Statement statement = connection.createStatement();
+            statement.executeUpdate("drop table coffees");
+            statement.executeUpdate("create table coffees(cof_name varchar(20),sales int ,total int)");
 
             // Populating the table with the coffees and their sales and prices.
             populateTable(statement);
@@ -75,6 +78,7 @@ public class Transaction_pairs {
     }
 
     public static void populateTable(Statement statement) throws SQLException {
+
         statement.executeUpdate("insert into coffees values('Colombian',101,8)");
         statement.executeUpdate("insert into coffees values('French_Roast',49,9)");
         statement.executeUpdate("insert into coffees values('Espresso',150,10)");
