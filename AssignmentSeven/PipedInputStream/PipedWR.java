@@ -5,8 +5,8 @@ import java.io.PipedInputStream;
 
 class PipedWR {
     public static void main(String args[]) throws Exception {
-        final PipedOutputStream pout = new PipedOutputStream();
-        final PipedInputStream pin = new PipedInputStream();
+        PipedOutputStream pout = new PipedOutputStream();
+        PipedInputStream pin = new PipedInputStream();
 
         pout.connect(pin);// connecting the streams
         // creating one thread t1 which writes the data

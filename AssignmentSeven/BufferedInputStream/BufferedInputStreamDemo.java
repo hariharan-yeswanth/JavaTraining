@@ -7,7 +7,7 @@ public class BufferedInputStreamDemo {
     public static void main(String args[]) {
         try {
             FileInputStream fin = new FileInputStream(
-                    "/Users/hariharansaravanan/Documents/JAVA/Learning/JDBC/jdbc/AssignmentSeven/BufferedInputStream/testout.text");
+                    "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/BufferedInputStream/testout.text");
             BufferedInputStream bin = new BufferedInputStream(fin);
             int i;
             while ((i = bin.read()) != -1) {
