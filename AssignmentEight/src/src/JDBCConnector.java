@@ -16,7 +16,7 @@ public class JDBCConnector {
             // Loading the driver class.
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Connecting to the database.
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/assignment8", "root", "Hari@2001");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/assignment8", "hari", "Hari@123");
         } catch (Exception e) {
             e.printStackTrace();
         }

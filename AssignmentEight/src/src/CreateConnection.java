@@ -3,6 +3,7 @@ package src;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * The class createConnection.Main is to demonstrate connecting a database in
@@ -15,8 +16,9 @@ import java.sql.ResultSet;
 public class CreateConnection {
     /**
      * @param args
+     * @throws SQLException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         // Creating a connection to the database.
         Connection connection = JDBCConnector.makeConnection();
@@ -30,6 +32,8 @@ public class CreateConnection {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            connection.close();
         }
     }
 }
