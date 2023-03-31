@@ -4,7 +4,7 @@ public class FileManipulator {
 
     public static void main(String[] args) {
         File createdFile = new File(
-                "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q10/fileCreated.txt");
+                "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q10/random.txt");
         File deletedFile = new File(
                 "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q10/fileDeleted.txt");
         File renamedFile = new File(

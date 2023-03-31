@@ -1,30 +1,24 @@
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 
 public class fileCopier {
-
     public static void main(String[] args) {
 
-        try {
-            FileReader fileReader = new FileReader(
-                    "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q14/fileSource.txt");
-            FileWriter fileWriter = new FileWriter(
-                    "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q14/fileDestination.txt");
+        try (Reader reader = new FileReader(
+                "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q14/fileSource.txt");
+                Writer writer = new FileWriter(
+                        "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q14/fileDestination.txt")) {
+            int i;
+            while ((i = reader.read()) != -1) {
 
-            char charArray[] = new char[64];
-            int i = 0;
-            while ((i = fileReader.read(charArray)) != -1) {
-                String copiedData = new String(charArray, 0, i);
-                System.out.println(copiedData);
-                fileWriter.write(copiedData);
+                writer.write(i);
             }
-
-            fileWriter.close();
-            fileReader.close();
-        } catch (Exception exception) {
-            exception.printStackTrace();
+            System.out.println("File copied successfully....");
+        } catch (IOException e) {
+            System.out.println(e);
         }
-
     }
-
 }

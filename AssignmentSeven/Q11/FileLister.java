@@ -9,14 +9,13 @@ public class FileLister {
 
 		// System.out.println("Files in the given directory:");
 		// for (int i = 0; i < filesInDirectory.length; i++) {
-		// 	System.out.println(filesInDirectory[i]);
+		// System.out.println(filesInDirectory[i]);
 		// }
 		if (directory.isDirectory()) {
-            for (String fileName : directory.list()) {
-                System.out.println(fileName);
-            }
-        }
-		else{
+			for (String fileName : directory.list()) {
+				System.out.println(fileName);
+			}
+		} else {
 			System.out.println("Not a directory");
 		}
 	}

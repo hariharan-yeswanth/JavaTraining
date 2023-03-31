@@ -1,28 +1,30 @@
 package Q15;
+
 import java.io.BufferedReader;
-import java.io.File;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class LineByLineCopier {
-
     public static void main(String[] args) {
-        try {
-            FileReader fileReader = new FileReader(
-                    new File("/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q15/fileCopy.txt"));
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            StringBuffer stringBuffer = new StringBuffer();
-            String sentence = "";
-
-            while ((sentence = bufferedReader.readLine()) != null) {
-                stringBuffer.append(sentence);
-                stringBuffer.append("\t");
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q15/sourcefile.txt"));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(
+                        "/Users/hariharansaravanan/Documents/JAVA/Learning/AssignmentSeven/Q15/destinationfile.txt"))) {
+            String string;
+            int count = 0;
+            while ((string = reader.readLine()) != null) {
+                if (count == 3)
+                    break;
+                writer.write(string);
+                writer.newLine();
+                count++;
             }
-            System.out.println(stringBuffer.toString());
-            fileReader.close();
-        } catch (Exception exception) {
-            exception.printStackTrace();
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            System.out.println(e);
         }
     }
-
 }
